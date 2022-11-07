@@ -20,7 +20,7 @@
     "microsoft"
   ],
   "require": {
-    "php": "^7.0",
+    "php": "^8.1",
     "zendframework/zend-http": "^2.8",
     "ext-json": "*"
   },

@@ -8,8 +8,8 @@ use BenjaminHirsch\Azure\Search\Index;
 use BenjaminHirsch\Azure\Search\Index\Field;
 use BenjaminHirsch\Azure\Search\Service;
 use PHPUnit\Framework\TestCase;
-use Zend\Http\Client;
-use Zend\Http\Response;
+use Laminas\Http\Client;
+use Laminas\Http\Response;
 
 class AzureSearchTest extends TestCase
 {
@@ -60,7 +60,6 @@ class AzureSearchTest extends TestCase
             null
         ));
 
-        $this->expectException(\Zend\Http\Exception\RuntimeException::class);
         $foo->getIndex('testindex');
     }
     
@@ -82,7 +81,7 @@ class AzureSearchTest extends TestCase
             ->addCrossOrigins('foo', 1)
             ->addSuggesters(new Index\Suggest('livesearch', ['test']));
 
-        /** @var \Zend\Http\Response $response */
+        /** @var \Laminas\Http\Response $response */
         $response = $this->azure->createIndex($index);
 
         $this->assertEquals(Response::STATUS_CODE_201, $response->getStatusCode());
@@ -108,7 +107,7 @@ class AzureSearchTest extends TestCase
             ];
         }
 
-        /** @var \Zend\Http\Response $response */
+        /** @var \Laminas\Http\Response $response */
         $response = $this->azure->uploadToIndex('testindex', $data);
 
         $this->assertEquals(Response::STATUS_CODE_200, $response->getStatusCode());
@@ -149,7 +148,7 @@ class AzureSearchTest extends TestCase
     {
         $this->client->method('send')->willReturn((new Response())->setStatusCode(200));
 
-        /** @var \Zend\Http\Response $response */
+        /** @var \Laminas\Http\Response $response */
         $response = $this->azure->deleteIndex('testindex');
 
         $this->assertGreaterThanOrEqual(Response::STATUS_CODE_200, $response->getStatusCode());

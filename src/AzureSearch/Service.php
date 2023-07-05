@@ -4,14 +4,14 @@ declare(strict_types=1);
 namespace BenjaminHirsch\Azure\Search;
 
 use BenjaminHirsch\Azure\Search\Exception\LengthException;
-use Zend\Http\Client;
-use Zend\Http\Client\Adapter\AdapterInterface;
-use Zend\Http\Client\Adapter\Curl;
-use Zend\Http\Client\Adapter\Socket;
-use Zend\Http\Header\ContentType;
-use Zend\Http\Headers;
-use Zend\Http\Request;
-use Zend\Http\Response;
+use Laminas\Http\Client;
+use Laminas\Http\Client\Adapter\AdapterInterface;
+use Laminas\Http\Client\Adapter\Curl;
+use Laminas\Http\Client\Adapter\Socket;
+use Laminas\Http\Header\ContentType;
+use Laminas\Http\Headers;
+use Laminas\Http\Request;
+use Laminas\Http\Response;
 
 class Service
 {
